@@ -1,0 +1,30 @@
+﻿<Window x:Class="TimerLordView.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:View="clr-namespace:TimerLordView"
+        xmlns:ViewModel="clr-namespace:TimerLordViewModel"
+        xmlns:TimerLord="clr-namespace:TimerLord"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        Topmost="True"
+        AllowsTransparency="True"
+        ResizeMode="CanResizeWithGrip"
+        Top="{TimerLord:SettingBinding Top}"
+        Left="{TimerLord:SettingBinding Left}"
+        Height="{TimerLord:SettingBinding Height}"
+        Width="{TimerLord:SettingBinding Width}"
+        MinHeight="80"
+        MinWidth="40">
+
+    <Window.Background>
+        <SolidColorBrush Opacity="0.75" Color="White"/>
+    </Window.Background>
+
+    <Window.DataContext>
+        <ViewModel:StopwatchViewModel/>
+    </Window.DataContext>
+
+    <View:StopwatchControl/>
+</Window>

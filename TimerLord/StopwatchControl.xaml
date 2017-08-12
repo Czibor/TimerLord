@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="TimerLordView.StopwatchControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:ViewModel="clr-namespace:TimerLordViewModel"
+             mc:Ignorable="d">
+
+    <UserControl.DataContext>
+        <ViewModel:StopwatchViewModel/>
+    </UserControl.DataContext>
+
+    <Grid>
+        <Viewbox Margin="5,5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.ColumnSpan="2" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Run Text="{Binding ElapsedTime, Mode=OneWay}" FontSize="24"/>
+                    <Run Text="{Binding ElapsedHundreths, Mode=OneWay}" FontSize="12"/>
+                </TextBlock>
+                <Button Grid.Column="0" Grid.Row="1" Content="{Binding ButtonStartStopText}" Command="{Binding ButtonStartStop}" Background="Wheat" Opacity="0.75" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="12" Width="24" FontSize="6" VerticalContentAlignment="Top"/>
+                <Button Grid.Column="1" Grid.Row="1" Content="Reset" Command="{Binding ButtonReset}" IsEnabled="{Binding ButtonResetEnabled}" Background="LightSteelBlue" Opacity="0.75" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="12" Width="24" FontSize="6"/>
+            </Grid>
+        </Viewbox>
+        <Button Background="#FFBC4F4F" Command="{Binding ButtonClose}" Content="x" Margin="5,5,5,5" HorizontalAlignment="Right" VerticalAlignment="Top" Width="30" Height="20" FontSize="10" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Top"/>
+    </Grid>
+</UserControl>
